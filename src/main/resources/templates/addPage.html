@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+
+<!-- Include Header -->
+<div th:replace="header :: nav"></div>
+
+<div class="bg-white p-8 mt-10 rounded-lg shadow-md w-96">
+    <h2 class="text-2xl font-bold mb-5 text-center">Add a New Page</h2>
+    <form th:action="@{/addPage}" th:object="${pageDto}" method="post">
+        <div class="mb-4">
+            <label class="block text-gray-700">Page Name</label>
+            <input type="text" th:field="*{pageName}" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400" placeholder="Enter page name">
+            <p th:if="${#fields.hasErrors('pageName')}" th:errors="*{pageName}" class="text-red-500 text-sm"></p>
+        </div>
+        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Submit</button>
+    </form>
+</div>
+</body>
+</html>

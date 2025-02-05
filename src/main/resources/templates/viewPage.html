@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>View Pages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen">
+
+<!-- Include Header -->
+<div th:replace="header :: nav"></div>
+
+<div class="bg-white p-8 mt-10 rounded-lg shadow-md w-96">
+  <h2 class="text-2xl font-bold mb-5 text-center">All Pages</h2>
+  <ul class="list-disc pl-5">
+    <li th:each="page : ${pages}" th:text="${page.pageName}" class="text-gray-700"></li>
+  </ul>
+</div>
+</body>
+</html>
